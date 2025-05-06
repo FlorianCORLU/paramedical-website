@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+@theme {
+    --color-background-main: #e3ceb9;
+    --color-background-secondary: #9f7756;
+  }
+
+.bg-main-color {
+    background-color: var(--color-background-main);
+}
+
+.bg-secondary-color {
+    background-color: var(--color-background-secondary);
+}
+
+/* borders for nav pannel menus in homepage */
+.border-showing {
+    border-bottom: 2px solid #a07e5c
+  }
+
+

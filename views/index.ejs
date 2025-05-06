@@ -3,14 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Bienvenue sur le site d'une psychomotricienne diplômée d'État. Découvrez mes formations, accompagnements et tarifs pour un suivi personnalisé." />
-    <link rel="stylesheet" href="../public/styles.css">
+    <meta
+      name="description"
+      content="Bienvenue sur le site d'une psychomotricienne diplômée d'État. Découvrez mes formations, accompagnements et tarifs pour un suivi personnalisé."
+    />
+    <link rel="stylesheet" href="styles.css" />
     <title>Accueil - Psychomotricienne</title>
-    
   </head>
-  <body class="bg-gray-100 text-gray-900">
+  <body class="bg-main-color text-gray-900">
     <!-- Conteneur principal -->
-    <div class="flex flex-col lg:flex-row-reverse min-h-screen p-6">
+    <div class="flex flex-col lg:flex-row-reverse min-h-screen">
       <!-- Bouton d'affichage du panneau de navigation (pour accès via mobile) -->
       <div class="lg:hidden mb-4">
         <button
@@ -25,66 +27,81 @@
 
       <!-- Navigation pannel -->
       <nav
-        class="hidden lg:block lg:w-2/5 transition-opacity duration-1000 opacity-0 lg:opacity-100"
+        class="lg:flex hidden justify-center items-center bg-secondary-color lg:w-2/5 transition-opacity duration-1000 opacity-0 lg:opacity-100"
         id="menu"
         aria-hidden="true"
       >
-        <ul class="space-y-3">
-          <li>
-            <a
-              href="#presentation"
-              class="block p-3 bg-gray-200 rounded-md hover:bg-gray-300"
-              >Présentation</a
-            >
-          </li>
-          <li>
-            <a
-              href="#formations"
-              class="block p-3 bg-gray-200 rounded-md hover:bg-gray-300"
-              >Formations</a
-            >
-          </li>
-          <li>
-            <a
-              href="#articles"
-              class="block p-3 bg-gray-200 rounded-md hover:bg-gray-300"
-              >Partages d’articles</a
-            >
-          </li>
-          <li>
-            <a
-              href="#tarifs"
-              class="block p-3 bg-gray-200 rounded-md hover:bg-gray-300"
-              >Accompagnements et tarifs</a
-            >
-          </li>
-          <li>
-            <a
-              href="#contact"
-              class="block p-3 bg-gray-200 rounded-md hover:bg-gray-300"
-              >Me contacter</a
-            >
-          </li>
-          <li>
-            <a
-              href="#mentions"
-              class="block p-3 bg-gray-200 rounded-md hover:bg-gray-300"
-              >Mentions légales</a
-            >
-          </li>
-        </ul>
+      <ul>
+        <li class="text-center">
+          <a
+            href="#presentation"
+            class="border-showing block p-3 rounded-xl hover:scale-120 transition-transform duration-250"
+          >
+            Présentation
+          </a>
+        </li>
+        <li class="text-center">
+          <a
+            href="#formations"
+            class="border-showing block p-3 rounded-xl hover:scale-120 transition-transform duration-250"
+          >
+            Formations
+          </a>
+        </li>
+        <li class="text-center">
+          <a
+            href="#articles"
+            class="border-showing block p-3 rounded-xl hover:scale-120 transition-transform duration-250"
+          >
+            Partages d’articles
+          </a>
+        </li>
+        <li class="text-center">
+          <a
+            href="#tarifs"
+            class="border-showing block p-3 rounded-xl hover:scale-120 transition-transform duration-250"
+          >
+            Accompagnements et tarifs
+          </a>
+        </li>
+        <li class="text-center">
+          <a
+            href="#contact"
+            class="border-showing block p-3 rounded-xl hover:scale-120 transition-transform duration-250"
+          >
+            Me contacter
+          </a>
+        </li>
+        <li class="text-center">
+          <a
+            href="#mentions"
+            class="block p-3 rounded-xl hover:scale-120 transition-transform duration-250"
+          >
+            Mentions légales
+          </a>
+        </li>
+      </ul>
+      
       </nav>
 
       <!-- Main part (Title, Logo...) -->
-      <section class="flex flex-col items-center lg:w-3/5 mb-6 lg:mb-0">
-        <img src="logo.png" alt="Logo" class="w-24 mb-4" />
-        <h1 class="text-2xl font-bold mb-1">Prénom Nom</h1>
+      <section class="flex flex-col items-center justify-center lg:w-3/5 mb-6 lg:mb-0">
+        <img
+          src="https://ik.imagekit.io/ndl6reqva/Logo%20Robillard_prev_ui.png?updatedAt=1746304714379&tr=f-auto,w-600"
+          alt="Logo Robillard"
+          loading="lazy"
+          decoding="async"
+          class="w-24 mb-4"
+        />
+        <h1 class="text-2xl font-bold mb-1">E.I. Justine Robillard</h1>
         <h2 class="text-lg text-gray-600 mb-4">Psychomotricienne D.E.</h2>
         <img
-          src="image-praticienne.jpg"
-          alt="Portrait de la praticienne"
-          class="w-full max-w-md rounded-lg shadow-lg transition-opacity duration-1000 opacity-0"
-          id="portrait"
+          src="https://ik.imagekit.io/ndl6reqva/image.png?tr=f-auto,w-600"
+          alt="Image de fond plante tabouret"
+          loading="lazy"
+          decoding="async"
+          class="w-full max-w-md rounded-lg transition-opacity duration-1000 opacity-0"
+          id="bg-image"
         />
       </section>
     </div>
@@ -93,7 +110,7 @@
     <script>
       // Fade-in de l'image
       window.addEventListener("load", () => {
-        const portrait = document.getElementById("portrait");
+        const portrait = document.getElementById("bg-image");
         portrait.classList.remove("opacity-0");
         portrait.classList.add("opacity-100");
       });
@@ -104,7 +121,7 @@
 
       toggleBtn.addEventListener("click", () => {
         menu.classList.toggle("hidden");
-        
+
         // Mise à jour de l'attribut aria-expanded
         const isOpen = menu.classList.contains("hidden");
         toggleBtn.setAttribute("aria-expanded", !isOpen);
@@ -134,4 +151,3 @@
     </script>
   </body>
 </html>
-    

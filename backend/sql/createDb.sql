@@ -31,6 +31,6 @@ CREATE TABLE IF NOT EXISTS articles (
 -- Table admin
 CREATE TABLE IF NOT EXISTS admin (
   id SERIAL PRIMARY KEY,
-  username VARCHAR(255) UNIQUE NOT NULL CHECK (username ~* '^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$'),
+  username VARCHAR(255) UNIQUE NOT NULL CHECK (username ~* '^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$'), -- regex to certify that an email adress is typed
   password VARCHAR(255) NOT NULL
 );

@@ -1,4 +1,4 @@
-// This file tells PostCSS how to process the CSS (which plugins to use)
+// This file tells PostCSS how to process  CSS (which plugins to use)
 
 export default {
     plugins: {

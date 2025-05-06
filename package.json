@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "postcss ./front/styles/tailwind.css -o public/styles.css",
-    "watch": "postcss ./front/styles/tailwind.css -o public/styles.css --watch"
+    "watch": "postcss ./front/styles/tailwind.css -o public/styles.css --watch",
+    "start": "nodemon ./backend/server.js"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +21,10 @@
     "@tailwindcss/postcss": "^4.1.5",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "nodemon": "^3.1.10",
     "pg": "^8.15.6",
     "postcss-cli": "^11.0.1"
   },
