@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="styles.css" />
     <title>Accueil - Psychomotricienne</title>
   </head>
-  <body class="bg-main-color text-gray-900">
+  <body class="bg-main-color overflow-x-hidden text-gray-900">
     <!-- Conteneur principal -->
-    <div class="flex flex-col lg:flex-row-reverse min-h-screen">
+    <div class="flex min-h-screen flex-col lg:flex-row-reverse">
       <!-- Bouton d'affichage du panneau de navigation (pour accès via mobile) -->
-      <div class="lg:hidden mb-4">
+      <div class="mb-4 lg:hidden">
         <button
           id="menu-toggle"
           class="text-3xl text-gray-800"
@@ -27,80 +27,86 @@
 
       <!-- Navigation pannel -->
       <nav
-        class="lg:flex hidden justify-center items-center bg-secondary-color lg:w-2/5 transition-opacity duration-1000 opacity-0 lg:opacity-100"
+        class="animate-slide-in-right animate-delay-200 bg-secondary-color mx-auto hidden w-4/5 items-center justify-center opacity-0 shadow-xl/80 transition-opacity duration-1000 lg:mx-0 lg:flex lg:w-2/5 lg:opacity-100"
         id="menu"
         aria-hidden="true"
       >
-      <ul>
-        <li class="text-center">
-          <a
-            href="#presentation"
-            class="border-showing block p-3 rounded-xl hover:scale-120 transition-transform duration-250"
-          >
-            Présentation
-          </a>
-        </li>
-        <li class="text-center">
-          <a
-            href="#formations"
-            class="border-showing block p-3 rounded-xl hover:scale-120 transition-transform duration-250"
-          >
-            Formations
-          </a>
-        </li>
-        <li class="text-center">
-          <a
-            href="#articles"
-            class="border-showing block p-3 rounded-xl hover:scale-120 transition-transform duration-250"
-          >
-            Partages d’articles
-          </a>
-        </li>
-        <li class="text-center">
-          <a
-            href="#tarifs"
-            class="border-showing block p-3 rounded-xl hover:scale-120 transition-transform duration-250"
-          >
-            Accompagnements et tarifs
-          </a>
-        </li>
-        <li class="text-center">
-          <a
-            href="#contact"
-            class="border-showing block p-3 rounded-xl hover:scale-120 transition-transform duration-250"
-          >
-            Me contacter
-          </a>
-        </li>
-        <li class="text-center">
-          <a
-            href="#mentions"
-            class="block p-3 rounded-xl hover:scale-120 transition-transform duration-250"
-          >
-            Mentions légales
-          </a>
-        </li>
-      </ul>
-      
+        <ul>
+          <li class="text-center">
+            <a
+              href="#presentation"
+              class="block rounded-xl p-3 transition-transform duration-250 hover:scale-120"
+            >
+              Présentation
+            </a>
+          </li>
+          <hr class="bg-third-color mx-auto my-4 h-0.5 w-xs" />
+          <li class="text-center">
+            <a
+              href="#formations"
+              class="block rounded-xl p-3 transition-transform duration-250 hover:scale-120"
+            >
+              Formations
+            </a>
+          </li>
+          <hr class="bg-third-color mx-auto my-4 h-0.5 w-xs" />
+          <li class="text-center">
+            <a
+              href="#articles"
+              class="block rounded-xl p-3 transition-transform duration-250 hover:scale-120"
+            >
+              Partages d’articles
+            </a>
+          </li>
+          <hr class="bg-third-color mx-auto my-4 h-0.5 w-xs" />
+          <li class="text-center">
+            <a
+              href="#tarifs"
+              class="block rounded-xl p-3 transition-transform duration-250 hover:scale-120"
+            >
+              Accompagnements et tarifs
+            </a>
+          </li>
+          <hr class="bg-third-color mx-auto my-4 h-0.5 w-xs" />
+          <li class="text-center">
+            <a
+              href="#contact"
+              class="block rounded-xl p-3 transition-transform duration-250 hover:scale-120"
+            >
+              Me contacter
+            </a>
+          </li>
+          <hr class="bg-third-color mx-auto my-4 h-0.5 w-xs" />
+          <li class="text-center">
+            <a
+              href="#mentions"
+              class="block rounded-xl p-3 transition-transform duration-250 hover:scale-120"
+            >
+              Mentions légales
+            </a>
+          </li>
+        </ul>
       </nav>
 
       <!-- Main part (Title, Logo...) -->
-      <section class="flex flex-col items-center justify-center lg:w-3/5 mb-6 lg:mb-0">
+      <section
+        class="mb-6 flex flex-col items-center justify-center lg:mb-0 lg:w-3/5"
+      >
         <img
           src="https://ik.imagekit.io/ndl6reqva/Logo%20Robillard_prev_ui.png?updatedAt=1746304714379&tr=f-auto,w-600"
           alt="Logo Robillard"
           loading="lazy"
           decoding="async"
-          class="w-24 mb-4"
+          class="mb-4 w-24"
         />
-        <h1 class="text-2xl font-bold mb-1">E.I. Justine Robillard</h1>
-        <h2 class="text-lg text-gray-600 mb-4">Psychomotricienne D.E.</h2>
+        <h1 class="mb-1 text-2xl font-bold">E.I. Justine Robillard</h1>
+        <h2 class="mb-4 text-lg text-gray-600">Psychomotricienne D.E.</h2>
         <img
           src="https://ik.imagekit.io/ndl6reqva/image.png?tr=f-auto,w-600"
           alt="Image de fond plante tabouret"
           loading="lazy"
           decoding="async"
-          class="w-full max-w-md rounded-lg transition-opacity duration-1000 opacity-0"
+          class="w-full max-w-md rounded-lg opacity-0 transition-opacity duration-4000"
           id="bg-image"
         />
       </section>
