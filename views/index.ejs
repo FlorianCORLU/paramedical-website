@@ -12,7 +12,10 @@
   </head>
   <body class="bg-main-color overflow-x-hidden text-gray-900">
     <!-- Conteneur principal -->
-    <div class="flex min-h-screen flex-col lg:flex-row-reverse">
+    <div
+      id="main-container"
+      class="flex min-h-screen flex-col lg:flex-row-reverse"
+    >
       <!-- Bouton d'affichage du panneau de navigation (pour accès via mobile) -->
       <div class="mb-4 lg:hidden">
         <button
@@ -69,12 +72,13 @@
           </li>
           <hr class="bg-third-color mx-auto my-4 h-0.5 w-xs" />
           <li class="text-center">
-            <a
-              href="#contact"
-              class="block rounded-xl p-3 transition-transform duration-250 hover:scale-120"
+            <!-- Contact modal button -->
+            <button
+              onclick="toggleModal(true)"
+              class="m-auto block rounded-xl p-3 transition-transform duration-250 hover:scale-120"
             >
               Me contacter
-            </a>
+            </button>
           </li>
           <hr class="bg-third-color mx-auto my-4 h-0.5 w-xs" />
           <li class="text-center">
@@ -111,24 +115,112 @@
         />
       </section>
     </div>
+    <!-- Contact form modal - Hidden by default -->
+    <div
+      id="contact-modal"
+      class="bg-opacity-50 fixed inset-0 z-50 hidden items-center justify-center"
+    >
+      <div
+        class="bg-opacity-30 bg-fourth-color max-w-4/5 min-w-2/5 rounded-lg px-6 py-3 shadow-2xl/50"
+      >
+        <button
+          aria-label="Fermer"
+          type="button"
+          onclick="toggleModal(false)"
+          class="z-50 rounded-[19px] bg-[#e0bda1] px-[6px] pb-[4px] text-2xl text-[25px] leading-none shadow-md/10 hover:bg-[#d1af95]"
+        >
+          &times;
+        </button>
+        <h2 class="mb-5 py-3 text-center text-3xl font-extrabold text-gray-800">
+          Me Contacter
+        </h2>
+        <form method="POST" action="/submit-contact-form" class="flex flex-col">
+          <div class="mb-5">
+            <label class="mb-2 font-semibold text-gray-700" for="name"
+              >Nom</label
+            >
+            <input
+              class="bg-fifth-color block w-full appearance-none rounded-lg border border-gray-300 px-4 py-2 leading-normal shadow"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Votre nom"
+              required
+            />
+          </div>
+          <div class="mb-5">
+            <label class="mb-2 font-semibold text-gray-700" for="email"
+              >Email</label
+            >
+            <input
+              class="bg-fifth-color block w-full appearance-none rounded-lg border border-gray-300 px-4 py-2 leading-normal shadow"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Votre email"
+              required
+            />
+          </div>
+          <div class="mb-5">
+            <label class="mb-2 font-semibold text-gray-700" for="message"
+              >Message</label
+            >
+            <textarea
+              class="bg-fifth-color block w-full appearance-none rounded-lg border border-gray-300 px-4 py-2 leading-normal shadow"
+              id="message"
+              name="message"
+              placeholder="Tapez votre message.."
+              rows="5"
+              required
+            ></textarea>
+          </div>
+          <div clas="flex justify-end space-x-2">
+            <button
+              type="submit"
+              class="bg-prune mx-auto block rounded-[9px] bg-[#a76c6c] px-[73px] py-[7px] font-semibold text-white shadow-md/20 hover:bg-[#946060]"
+            >
+              Envoyer
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!-- JavaScript -->
+
+    <!-- Contact modal toggle -->
     <script>
-      // Fade-in de l'image
+      function toggleModal(show) {
+        const modal = document.getElementById("contact-modal");
+        const mainContainer = document.getElementById("main-container");
+        if (show) {
+          modal.classList.remove("hidden");
+          modal.classList.add("flex");
+          mainContainer.classList.add("blur-md");
+        } else {
+          modal.classList.remove("flex");
+          modal.classList.add("hidden");
+          mainContainer.classList.remove("blur-md");
+        }
+      }
+    </script>
+
+    <script>
+      // Background picture Fade-in
       window.addEventListener("load", () => {
         const portrait = document.getElementById("bg-image");
         portrait.classList.remove("opacity-0");
         portrait.classList.add("opacity-100");
       });
 
-      // Menu toggle mobile
+      // Toggle menu for mobile
       const toggleBtn = document.getElementById("menu-toggle");
       const menu = document.getElementById("menu");
 
       toggleBtn.addEventListener("click", () => {
         menu.classList.toggle("hidden");
 
-        // Mise à jour de l'attribut aria-expanded
+        // Update aria-expanded attribute
         const isOpen = menu.classList.contains("hidden");
         toggleBtn.setAttribute("aria-expanded", !isOpen);
 
@@ -136,21 +228,21 @@
           setTimeout(() => {
             menu.classList.remove("opacity-0");
             menu.classList.add("opacity-100");
-            menu.setAttribute("aria-hidden", "false"); // Le menu est visible
+            menu.setAttribute("aria-hidden", "false"); // menu visible
           }, 100);
         } else {
           menu.classList.remove("opacity-100");
           menu.classList.add("opacity-0");
-          menu.setAttribute("aria-hidden", "true"); // Le menu est caché
+          menu.setAttribute("aria-hidden", "true"); // menu hidden
         }
       });
 
-      // Gestion du focus quand le menu est ouvert
+      // Handling focus when the menu is opened
       menu.addEventListener("transitionend", () => {
         if (!menu.classList.contains("hidden")) {
           const firstMenuItem = menu.querySelector("a");
           if (firstMenuItem) {
-            firstMenuItem.focus(); // Met le focus sur le premier lien du menu
+            firstMenuItem.focus(); // Put focus on the first menu link
           }
         }
       });

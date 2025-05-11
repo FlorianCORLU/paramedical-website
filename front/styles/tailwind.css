@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-    --color-background-main: #e3ceb9;
-    --color-background-secondary: #9f7756;
-    --color-background-third: #a07e5c;
-  }
+  --color-background-main: #e3ceb9;
+  --color-background-secondary: #9f7756;
+  --color-background-third: #a07e5c;
+  --color-background-fourth: #eb876c;
+  --color-background-contact-form: #e8e8e88f;
+}
 
 @layer {
   hr {
     color: inherit;
-    border:none;
+    border: none;
     max-width: 80%;
   }
 }
@@ -36,20 +38,26 @@
 }
 
 .bg-main-color {
-    background-color: var(--color-background-main);
+  background-color: var(--color-background-main);
 }
 
 .bg-secondary-color {
-    background-color: var(--color-background-secondary);
+  background-color: var(--color-background-secondary);
 }
 
 .bg-third-color {
   background-color: var(--color-background-third);
 }
 
+.bg-fourth-color {
+  background-color: var(--color-background-fourth);
+}
+
+.bg-fifth-color {
+  background-color: var(--color-background-contact-form);
+}
+
 /* borders for nav pannel menus in homepage */
 .border-showing {
-    border-bottom: 2px solid #a07e5c
-  }
-
-
+  border-bottom: 2px solid #a07e5c;
+}
