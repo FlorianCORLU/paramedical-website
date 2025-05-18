@@ -8,15 +8,23 @@
       content="Bienvenue sur le site d'une psychomotricienne diplômée d'État. Découvrez mes formations, accompagnements et tarifs pour un suivi personnalisé."
     />
     <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
     <title>Accueil - Psychomotricienne</title>
   </head>
   <body class="bg-main-color overflow-x-hidden text-gray-900">
-    <!-- Conteneur principal -->
+    <!-- Main Container -->
     <div
       id="main-container"
       class="flex min-h-screen flex-col lg:flex-row-reverse"
     >
-      <!-- Bouton d'affichage du panneau de navigation (pour accès via mobile) -->
+      <!-- Success or Error Alert message after sending the contact form -->
+      <%- include('partials/emailStatusMessage') %>
+
+      <!-- Navigation pannel display button (for mobile access) -->
       <div class="mb-4 lg:hidden">
         <button
           id="menu-toggle"
@@ -174,6 +182,13 @@
               required
             ></textarea>
           </div>
+          <!-- Widget Turnstile -->
+           <% if (typeof turnstileSiteKey !== 'undefined') { %>
+          <div
+            class="cf-turnstile"
+            data-sitekey="<%= turnstileSiteKey %>"
+          ></div>
+          <% } %>
           <div clas="flex justify-end space-x-2">
             <button
               type="submit"
@@ -202,6 +217,16 @@
           modal.classList.add("hidden");
           mainContainer.classList.remove("blur-md");
         }
+      }
+    </script>
+
+    <script>
+      // Timeout for the contact form alert message
+      const emailStatusMessage = document.getElementById("emailStatusMessage");
+      if (emailStatusMessage) {
+        setTimeout(() => {
+          emailStatusMessage.remove();
+        }, 5000);
       }
     </script>
 

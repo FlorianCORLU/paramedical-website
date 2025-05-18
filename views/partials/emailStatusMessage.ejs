@@ -1,0 +1,22 @@
+<% if (typeof emailStatus !== 'undefined') { %>
+    <% if (emailStatus === 'Error') { %>
+      <div role="alert" id="emailStatusMessage">
+        <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+          Erreur
+        </div>
+        <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+          <p><%= message %></p>
+        </div>
+      </div>
+    <% } else if (emailStatus === 'Success') { %>
+      <div role="alert" id="emailStatusMessage">
+        <div class="bg-green-500 text-white font-bold rounded-t px-4 py-2">
+          Succès
+        </div>
+        <div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
+          <p><%= message %></p>
+        </div>
+      </div>
+    <% } %>
+  <% } %>
+  
